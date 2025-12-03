@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live AI Chatbot - Nushell</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">🚀 Nushell</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../blog/index.html" class="nav-link">Blog</a></li>
+                <li><a href="../tutorials/index.html" class="nav-link">Tutorials</a></li>
+                <li><a href="index.html" class="nav-link active">Live Chatbot</a></li>
+                <li><a href="https://github.com/wsx7524999/chanfana-openapi-template" class="nav-link">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="chatbot-header">
+        <h1>Live AI Chatbot</h1>
+        <p>Experience AI-powered assistance for Nushell</p>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="info-banner">
+                <strong>ℹ️ Demo Mode:</strong> This is a simulated chatbot demonstrating the AI integration concept. For the full experience with real ChatGPT responses, follow the <a href="../tutorials/ai-integration-setup.html">setup tutorial</a>.
+            </div>
+
+            <div class="chatbot-container">
+                <h2>🤖 Nushell AI Assistant</h2>
+                <p>Ask questions about Nushell commands, features, and best practices</p>
+
+                <div class="chatbot-box">
+                    <div class="model-selector">
+                        <label for="modelSelector">Select AI Model:</label>
+                        <select id="modelSelector">
+                            <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Quick)</option>
+                            <option value="gpt-4">GPT-4 (Balanced)</option>
+                            <option value="gpt-4-turbo">GPT-4 Turbo (Advanced)</option>
+                        </select>
+                    </div>
+
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- Messages will be added here by JavaScript -->
+                    </div>
+
+                    <div class="chat-input-container">
+                        <input 
+                            type="text" 
+                            class="chat-input" 
+                            id="chatInput"
+                            placeholder="Type your question about Nushell..."
+                            autocomplete="off"
+                        >
+                        <button class="send-btn" id="sendBtn">Send</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="suggested-questions">
+                <h3>💡 Suggested Questions</h3>
+                <button class="question-btn">How do I filter files larger than 1MB in Nushell?</button>
+                <button class="question-btn">What's the difference between 'where' and 'select' in Nushell?</button>
+                <button class="question-btn">How can I convert a JSON file to CSV using Nushell?</button>
+                <button class="question-btn">Show me how to group data by a column in Nushell</button>
+                <button class="question-btn">How do I parse and analyze log files with Nushell?</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Nushell Project. Licensed under MIT License.</p>
+            <div class="footer-links">
+                <a href="https://github.com/wsx7524999/chanfana-openapi-template">GitHub</a>
+                <a href="#">Discord</a>
+                <a href="#">Official Site</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
