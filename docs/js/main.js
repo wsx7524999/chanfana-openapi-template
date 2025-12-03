@@ -48,6 +48,9 @@ if (document.getElementById('chatMessages')) {
     const sendBtn = document.getElementById('sendBtn');
     const modelSelector = document.getElementById('modelSelector');
 
+    // Constants
+    const TYPING_DELAY_MS = 800;
+
     // Predefined responses for different questions
     const responses = {
         'How do I filter files larger than 1MB in Nushell?': {
@@ -66,7 +69,7 @@ ls | where size > 1mb | sort-by size --reverse | first 10</code></pre>
 
 The <code>where</code> command in Nushell is very powerful for filtering structured data!`
         },
-        'What\'s the difference between \'where\' and \'select\' in Nushell?': {
+        "What's the difference between 'where' and 'select' in Nushell?": {
             model: 'gpt-4',
             response: `Great question! These are two fundamental commands in Nushell with different purposes:
 
@@ -233,7 +236,7 @@ For now, try clicking one of the suggested questions below to see example respon
             }
 
             addMessage('assistant', response.response);
-        }, 800);
+        }, TYPING_DELAY_MS);
     }
 
     function addMessage(role, content) {
