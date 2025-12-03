@@ -1,0 +1,33 @@
+# GitHub Pages Configuration
+title: Nushell
+description: A modern shell with powerful AI integration
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+theme: null # Using custom HTML/CSS instead of Jekyll theme
+
+# Exclude these files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include these files in the build
+include:
+  - .htaccess
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Default values
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
