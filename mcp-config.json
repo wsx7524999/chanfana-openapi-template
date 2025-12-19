@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "chanfana-openapi-template": {
+      "command": "npx",
+      "args": ["tsx", "mcp-server.ts"],
+      "description": "MCP server exposing the Chanfana OpenAPI template endpoints as tools for AI agents",
+      "capabilities": {
+        "tools": true
+      }
+    }
+  }
+}
