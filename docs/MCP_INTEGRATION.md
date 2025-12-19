@@ -159,6 +159,79 @@ The MCP integration consists of:
 
 3. **Configuration** (`mcp-config.json`): Client configuration template
 
+## Implementation Notes
+
+### Current Template Design
+
+The MCP server is implemented as a **template/demonstration** that shows how MCP tools work. The current tool handlers return instructional text that describes what API calls would be made, rather than making actual API calls. This design choice:
+
+- Makes it easy to understand the MCP protocol without needing a live API deployment
+- Allows testing the MCP integration independently
+- Provides clear examples of how to implement real API calls
+
+### Making Real API Calls (Production Use)
+
+For production use, you should implement actual API calls in the tool handlers. Here are three approaches:
+
+#### Option 1: HTTP Calls to Deployed API
+
+Replace template responses with actual HTTP calls to your deployed Cloudflare Worker:
+
+```typescript
+case "list_tasks": {
+  const params = new URLSearchParams();
+  if (args?.page) params.append("page", String(args.page));
+  if (args?.limit) params.append("limit", String(args.limit));
+  
+  const response = await fetch(`https://your-api.workers.dev/tasks?${params}`);
+  const data = await response.json();
+  
+  return {
+    content: [{
+      type: "text",
+      text: JSON.stringify(data, null, 2)
+    }]
+  };
+}
+```
+
+#### Option 2: Direct Database Access
+
+For local development, connect directly to D1:
+
+```typescript
+import { D1Database } from '@cloudflare/workers-types';
+
+// Configure D1 connection for local dev
+const db = await getLocalD1Database();
+
+case "list_tasks": {
+  const results = await db.prepare(
+    'SELECT * FROM tasks ORDER BY id DESC LIMIT ?'
+  ).bind(args?.limit || 10).all();
+  
+  return {
+    content: [{
+      type: "text",
+      text: JSON.stringify(results, null, 2)
+    }]
+  };
+}
+```
+
+#### Option 3: Shared Business Logic
+
+Extract logic into shared services:
+
+```typescript
+// src/services/tasks.ts
+export async function listTasks(db: D1Database, params: ListTasksParams) {
+  // Shared implementation
+}
+
+// Use in both HTTP endpoints and MCP server
+```
+
 ## Development
 
 ### Adding New Tools

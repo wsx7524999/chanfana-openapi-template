@@ -180,11 +180,15 @@ export class MCPServer {
     this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
       const { name, arguments: args } = request.params;
 
+      // NOTE: This is a template implementation that returns instructional responses.
+      // For production use, replace these with actual API calls or database queries.
+      // See docs/MCP_INTEGRATION.md for implementation examples.
+
       try {
         switch (name) {
           case "list_tasks": {
-            // In a real implementation, this would call the actual API endpoint
-            // For now, we return a template response showing how it would work
+            // Template response - replace with: await fetch(`https://your-api/tasks?${params}`)
+            // or direct database query for production use
             const params = new URLSearchParams();
             if (args?.page) params.append("page", String(args.page));
             if (args?.limit) params.append("limit", String(args.limit));
