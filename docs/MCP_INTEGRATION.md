@@ -153,7 +153,7 @@ The MCP integration consists of:
    - Request handlers for each tool
    - Error handling and validation
 
-2. **Entry Point** (`mcp-server.js`): Standalone server launcher
+2. **Entry Point** (`mcp-server.ts`): Standalone server launcher
    - Stdio transport for client communication
    - Process management
 
