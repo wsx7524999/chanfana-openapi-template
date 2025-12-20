@@ -2,6 +2,7 @@
   "name": "chanfana-openapi-template",
   "description": "Complete backend API template using Hono + Chanfana + D1 + Vitest.",
   "private": true,
+  "type": "module",
   "cloudflare": {
     "label": "Backend OpenAPI Template",
     "products": [
@@ -23,9 +24,11 @@
     "predeploy": "wrangler d1 migrations apply DB --remote",
     "seedLocalDb": "wrangler d1 migrations apply DB --local",
     "schema": "npx chanfana",
-    "test": "wrangler deploy --dry-run && npx vitest run --config tests/vitest.config.mts"
+    "test": "wrangler deploy --dry-run && npx vitest run --config tests/vitest.config.mts",
+    "mcp": "tsx mcp-server.ts"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.25.1",
     "chanfana": "2.8.1",
     "hono": "4.8.2",
     "zod": "3.25.67"
@@ -33,6 +36,7 @@
   "devDependencies": {
     "@cloudflare/vitest-pool-workers": "0.8.44",
     "@types/node": "24.0.4",
+    "tsx": "^4.21.0",
     "typescript": "5.8.3",
     "wrangler": "4.21.x"
   }

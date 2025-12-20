@@ -19,6 +19,7 @@ This directory contains a complete GitHub Pages site for the Nushell project, fe
 - Model selector (GPT-4, GPT-4 Turbo, GPT-3.5)
 - Pre-populated responses for common Nushell questions
 - Syntax-highlighted code examples
+- **NEW**: Can be connected to real AI models via Model Context Protocol (MCP) - see [MCP Integration Guide](MCP_INTEGRATION.md)
 
 ## Technical Stack
 

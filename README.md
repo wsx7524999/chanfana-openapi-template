@@ -15,6 +15,17 @@ This template includes various endpoints, a D1 database, and integration tests u
 
 Besides being able to see the OpenAPI schema (openapi.json) in the browser, you can also extract the schema locally no hassle by running this command `npm run schema`.
 
+## 🤖 Model Context Protocol (MCP) Integration
+
+This template now includes a **Model Context Protocol (MCP)** server that exposes all API endpoints as tools that AI agents can use! This enables AI assistants like Claude, ChatGPT, and other AI agents to interact with your API programmatically through a standardized protocol.
+
+**Quick start:**
+```bash
+npm run mcp
+```
+
+For detailed setup instructions, integration guides, and usage examples, see [MCP Integration Documentation](docs/MCP_INTEGRATION.md).
+
 <!-- dash-content-end -->
 
 > [!IMPORTANT]
@@ -68,5 +79,6 @@ Test files are located in the `tests/` directory, with examples demonstrating ho
 
 1. Your main router is defined in `src/index.ts`.
 2. Each endpoint has its own file in `src/endpoints/`.
-3. Integration tests are located in the `tests/` directory.
-4. For more information read the [chanfana documentation](https://chanfana.com/), [Hono documentation](https://hono.dev/docs), and [Vitest documentation](https://vitest.dev/guide/).
+3. The MCP server is defined in `src/endpoints/mcp.ts`.
+4. Integration tests are located in the `tests/` directory.
+5. For more information read the [chanfana documentation](https://chanfana.com/), [Hono documentation](https://hono.dev/docs), [Vitest documentation](https://vitest.dev/guide/), and [MCP documentation](https://modelcontextprotocol.io/).
